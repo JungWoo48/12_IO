@@ -24,7 +24,7 @@ public class IOService {
 	public void output1() {
 		//바이트 기반 스트림
 		FileOutputStream fos = null;
-		
+		//null값을 주고 try catch문으로 예외를 잡아내야한다.
 		
 	
 		//*******FileOutputStream fos = new FileOutputStream("test.txt");
@@ -33,16 +33,16 @@ public class IOService {
 		
 		try {
 			fos = new FileOutputStream("test1.txt");
-			//현재 프로그램에서 text.txt라는 외부 파일로의 통로(stream)을 만든것
+			//현재 프로그램에서 text1.txt라는 외부 파일로의 통로(stream)을 만든것
 			
-			//이 파일은 목적지가 필요하다, 12_IO가 기본 목적지로 설정되어있다
+			//이 파일은 목적지가 필요하다, 프로그램이 알아서 12_IO가 기본 목적지로 설정되어있다
 			
 			//파일에 "Hello" 보내기
-			String str = "Hello";
+			String str = "Hellow";
 			
 			for(int i = 0; i < str.length(); i++ ) {
 				
-				//System.out.println(str.charAt(i));
+				//System.out.println(str.charAt(i)); 이렇게 바로 출력하면 오류 발생 가능성이 있다.
 				
 				//"hello"를 한 문자씩 끊어서 파일로 출력하기
 				fos.write(str.charAt(i) );
@@ -53,7 +53,7 @@ public class IOService {
 			}
 			
 		}catch(IOException e) {
-			//*******8FileNotFoundException 는 IOException의 자식 객체로 둘다 잡기 가능
+			//*******FileNotFoundException 는 IOException의 자식 객체로 둘다 잡기 가능
 			
 		
 			System.out.println("예외 발생");
